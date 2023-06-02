@@ -11,6 +11,14 @@
     --fs-400: .8125rem;
     --fs-500: .9625rem;
     --fs-900: 2rem;
+
+    --br:.5rem;
+    --spacer:2rem;
+}
+*,
+*::before
+*::after {
+    box-sizing: border-box;
 }
 @media (min-width: 50rem) {
     :root {
@@ -46,13 +54,19 @@ h1 {
     padding: 0 2rem;
     margin: 0 auto;
 }
+body,
+h2,
+h3,
+h4,
+p,
 ul[class],
-ol[class] {
-    list-style: none;
-}
-img {
-    max-width: 100%;
-    display: block;
+ol[class],
+li,
+figure,
+figcaption,
+dl,
+dd{
+    margin: 0;
 }
 input,
 button,
@@ -60,10 +74,39 @@ textarea,
 select {
     font: inherit;
 }
-.ratings li {
+ul[class],
+ol[class] {
+    padding: 0;
+    list-style: none;
+}
+img {
+    max-width: 100%;
+    display: block;
+    border-radius: 50%;
+    margin-right: var(--spacer);
+}
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+.ratings > li {
     color: var(--clr-primary-700);
     background: var(--clr-neutral-200);
     font-weight: 800;
+    padding: .5rem;
+    border-radius: var(--br);
+}
+.ratings > li::before{
+        content: '';
+        width: 100px;
+        height: 1rem;
+        margin: 0 auto;
+        margin-bottom: .5rem;
+        display: block;
+        background-image: url(images/icon-star.svg);
+        background-repeat: space;
 }
 .flow-content > * + * {
     margin-top: var(--flow-space, 1rem);
@@ -71,3 +114,13 @@ select {
 .ratings {
     --flow-space: 3rem;
 } 
+.quotes blockquote {
+    background: var(--clr-primary-700);
+    color: var(--clr-neutral-200);
+    text-align: left;
+    border-radius: var(--br);
+    padding: var(--spacer);
+}
+.split {
+    display: flex;
+}
